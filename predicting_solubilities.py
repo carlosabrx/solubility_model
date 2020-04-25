@@ -91,59 +91,13 @@ featurizer = dc.feat.ConvMolFeaturizer()
 x = featurizer.featurize(mols)
 predicted_solubility = model.predict_on_batch(x)
 print(predicted_solubility)
-          
 
 
-# In[17]:
-
+#Compound Structures
 
 mol = Chem.MolFromSmiles("COC(C)(C)CCCC(C)CC=CC(C)=CC(=O)OC(C)C")
 mol1 = Chem.MolFromSmiles("CCOC(=O)CC")
 mol2 = Chem.MolFromSmiles("CSc1nc(NC(C)C)nc(NC(C)C)n1")
 mol3 = Chem.MolFromSmiles("CC(C#C)N(C)C(=O)Nc1ccc(Cl)cc1")
 mol4 = Chem.MolFromSmiles("Cc1cc2ccccc2cc1C")
-mol
-
-
-# In[13]:
-
-
-mol1
-
-
-# In[14]:
-
-
-mol2
-
-
-# In[15]:
-
-
-mol3
-
-
-# In[16]:
-
-
-mol4
-
-
-# In[119]:
-
-
-import matplotlib
-import numpy as np
-import matplotlib.pyplot as plt
-from deepchem.utils.save import load_from_disk
-
-dataset_file= "delaney-processed.csv"
-dataset = load_from_disk(dataset_file)
-
-
-solubilities = np.array(dataset['measured log solubility in mols per litre'])
-plt.hist(solubilities, 100, facecolor='magenta')
-plt.xlabel('Measured log-solubility in mols/litre')
-plt.ylabel('Number of compounds')
-plt.show()
 
